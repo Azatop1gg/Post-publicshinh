@@ -1,0 +1,31 @@
+﻿@using System
+@model IEnumerable<PostMVC.Models.Category>
+
+
+@{
+    ViewBag.Title = "AddCategoryList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddCategoryList</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            <button type="button" onclick="location.href = '/Posts/AddCategory/@item.Id">Добавить</button>
+        </td>
+    </tr>
+}
+
+</table>
